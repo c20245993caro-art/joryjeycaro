@@ -1,0 +1,50 @@
+<section id="contact"
+            class="grid gap-8 border-t-4 border-red-600 p-8 md:grid-cols-2 md:p-16">
+
+            <div>
+                <p class="white-accent inline-block px-4 py-2 font-black">
+                    DIIN KAPA?
+                </p>
+
+                <h2 class="mt-6 text-5xl font-black uppercase md:text-7xl">
+                    DALI<br>NA!
+                </h2>
+
+                <p class="mt-5 text-blue-100">
+                    STORYAHAN TANA MAYU AHH.
+                </p>
+            </div>
+
+            <form class="light-card card p-6" onsubmit="sendMessage(event)">
+
+                <label for="email" class="font-black">
+                    YOUR EMAIL
+                </label>
+
+                <input id="email"
+                    type="email"
+                    required
+                    placeholder="yourname@email.com"
+                    class="mt-3 w-full border-2 border-red-600 p-4">
+
+                <label for="message" class="mt-5 block font-black">
+                    MESSAGE
+                </label>
+
+                <textarea id="message"
+                    required
+                    rows="3"
+                    placeholder="Write your message..."
+                    class="mt-3 w-full border-2 border-red-600 p-4"></textarea>
+
+                <button type="submit"
+                    class="btn-primary mt-4 w-full border-2 border-red-600">
+                    SUBMIT
+                </button>
+
+                <p id="status" class="mt-3 text-sm font-bold"></p>
+
+            </form>
+        </section>
+
+    </main>
