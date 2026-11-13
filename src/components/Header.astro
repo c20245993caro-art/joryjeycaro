@@ -1,4 +1,8 @@
-<a href="#home"
+
+<header>
+    <nav class="flex flex-wrap items-center justify-between gap-4 border-b-4 border-red-600 p-5">
+
+        <a href="#home"
             class="white-accent border-2 border-red-600 px-5 py-3 font-black">
             JJC.
         </a>
@@ -8,59 +12,75 @@
             <a href="#services">SERVICES</a>
             <a href="#contact">CONTACT</a>
 
-            <button id="themeBtn"
-                class="btn-primary border-2 border-red-600 px-4 py-2"
-                onclick="toggleTheme()">
+            <button
+                id="themeBtn"
+                type="button"
+                class="border-2 border-red-600 px-4 py-2">
                 LIGHT MODE
             </button>
 
-            <button onclick="replayTimeline()"
-                class="btn-primary border-2 border-red-600 px-4 py-2">
+            <button
+                id="replayBtn"
+                type="button"
+                class="border-2 border-red-600 px-4 py-2">
                 REPLAY TIMELINE
             </button>
         </div>
+
     </nav>
+</header>
 
-    <main>
+<script>
+    // DARK AND LIGHT MODE
+    const themeBtn = document.querySelector("#themeBtn");
 
-        <!-- HOME -->
-        <section id="home" class="stripe p-6 md:p-16">
+    function updateTheme() {
+        const isDark = document.documentElement.classList.contains("dark");
 
-            <div class="mx-auto grid max-w-6xl items-center gap-8 md:grid-cols-2">
+        if (themeBtn) {
+            themeBtn.textContent = isDark ? "LIGHT MODE" : "DARK MODE";
+        }
+    }
 
-                <div class="card red p-6 md:p-8">
+    // Load saved theme
+    const savedTheme = localStorage.getItem("portfolio-theme");
 
-                    <p class="text-sm font-black">
-                        PINAKA GWAPO SA VICTORIAS
-                    </p>
+    if (savedTheme === "light") {
+        document.documentElement.classList.remove("dark");
+    } else {
+        document.documentElement.classList.add("dark");
+    }
 
-                    <h1 id="nameTitle"
-                        class="mt-5 text-5xl font-black uppercase leading-none md:text-7xl">
-                        Jory<br>Jey Caro
-                    </h1>
+    updateTheme();
 
-                    <p class="mt-5 font-bold">
-                        TAGA YAWEE GALI AH
-                    </p>
+    // Switch theme
+ 
+themeBtn?.addEventListener("click", () => {
 
-                    <a href="#about"
-                        class="white-accent mt-6 inline-block border-2 border-white px-6 py-3 font-black hover:bg-blue-900 hover:text-white">
-                        ABOUT ME
-                    </a>
+    // ROTATE BUTTON 360 DEGREES
+    gsap.to(themeBtn, {
+        rotation: "+=360",
+        duration: 0.6,
+        ease: "power2.inOut"
+    });
 
-                </div>
+    // TOGGLE DARK AND LIGHT MODE
+    document.documentElement.classList.toggle("dark");
 
-                <div class="card light-card p-8 md:p-10">
+    const isDark = document.documentElement.classList.contains("dark");
 
-                    <h2 class="text-4xl font-black uppercase md:text-6xl">
-                        SINGER<br>DANCER
-                    </h2>
+    localStorage.setItem(
+        "portfolio-theme",
+        isDark ? "dark" : "light"
+    );
 
-                    <div class="white-accent mt-6 p-4 text-center font-black">
-                        BAW AMBOT
-                    </div>
+    updateTheme();
 
-                </div>
+});
 
-            </div>
-        </section>
+
+    // REPLAY TIMELINE
+    document.querySelector("#replayBtn")?.addEventListener("click", () => {
+        window.dispatchEvent(new Event("replay-timeline"));
+    });
+</script>

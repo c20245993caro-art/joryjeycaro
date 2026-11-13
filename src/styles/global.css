@@ -3,6 +3,116 @@
 <<<<<<< HEAD
 @custom-variant dark (&:where(.dark, .dark *));
 
+<<<<<<< HEAD
 =======
 @custom-variant dark(&:where(.dark, .dark*));
 >>>>>>> b91789a (First astro commit)
+=======
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: #2563eb;
+    color: white;
+    transition: background .3s, color .3s;
+}
+
+.dark body {
+    background: #172554;
+    color: white;
+}
+
+.blue {
+    background: #2563eb;
+    color: white;
+}
+
+.red {
+    background: #dc2626;
+    color: white;
+}
+
+.white-accent {
+    background: white;
+    color: #172554;
+}
+
+.stripe {
+    background: repeating-linear-gradient(
+        130deg,
+        #2563eb 0px, #2563eb 45px,
+        #dc2626 45px, #dc2626 90px,
+        #2563eb 90px, #2563eb 135px
+    );
+}
+
+.dark .stripe {
+    background: repeating-linear-gradient(
+        130deg,
+        #172554 0px, #172554 45px,
+        #dc2626 45px, #dc2626 90px,
+        #172554 90px, #172554 135px
+    );
+}
+
+.card {
+    border: 3px solid #dc2626;
+    box-shadow: 5px 5px 0 #ffffff;
+}
+
+.light-card {
+    background: white;
+    color: #172554;
+}
+
+.dark .light-card {
+    background: #1e3a8a;
+    color: white;
+}
+
+#progressBar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background: #facc15;
+    transform: scaleX(0);
+    transform-origin: left;
+    z-index: 9999;
+}
+
+#cursorGlow {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.12);
+    filter: blur(35px);
+    pointer-events: none;
+    z-index: 0;
+}
+
+nav, main, footer {
+    position: relative;
+    z-index: 1;
+}
+
+input, textarea {
+    color: #172554;
+}
+
+@media (pointer: coarse) {
+    #cursorGlow {
+        display: none;
+    }
+}
+/* Hide unwanted ScrollTrigger markers */
+.gsap-marker-scroller-end {
+    display: none !important;
+}
+>>>>>>> 3cbf8ba (basta commit)
