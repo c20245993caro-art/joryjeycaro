@@ -1,13 +1,10 @@
 @import "tailwindcss";
 
-<<<<<<< HEAD
+
 @custom-variant dark (&:where(.dark, .dark *));
 
-<<<<<<< HEAD
-=======
-@custom-variant dark(&:where(.dark, .dark*));
->>>>>>> b91789a (First astro commit)
-=======
+
+@custom-variant dark (&:where(.dark, .dark *));
 
 html {
     scroll-behavior: smooth;
@@ -115,4 +112,5 @@ input, textarea {
 .gsap-marker-scroller-end {
     display: none !important;
 }
->>>>>>> 3cbf8ba (basta commit)
+
+

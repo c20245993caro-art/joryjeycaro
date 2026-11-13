@@ -230,3 +230,58 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
 });
+
+    // DARK AND LIGHT MODE
+    const themeBtn = document.querySelector("#themeBtn");
+
+    function updateTheme() {
+        const isDark = document.documentElement.classList.contains("dark");
+
+        if (themeBtn) {
+            themeBtn.textContent = isDark ? "LIGHT MODE" : "DARK MODE";
+        }
+    }
+
+    // Load saved theme
+    const savedTheme = localStorage.getItem("portfolio-theme");
+
+    if (savedTheme === "light") {
+        document.documentElement.classList.remove("dark");
+    } else {
+        document.documentElement.classList.add("dark");
+    }
+
+    updateTheme();
+
+    // Switch theme
+ 
+themeBtn?.addEventListener("click", () => {
+
+    // ROTATE BUTTON 360 DEGREES
+    gsap.to(themeBtn, {
+        rotation: "+=360",
+        duration: 0.6,
+        ease: "power2.inOut"
+    });
+
+    // TOGGLE DARK AND LIGHT MODE
+    document.documentElement.classList.toggle("dark");
+
+    const isDark = document.documentElement.classList.contains("dark");
+
+    localStorage.setItem(
+        "portfolio-theme",
+        isDark ? "dark" : "light"
+    );
+
+    updateTheme();
+
+});
+
+
+    // REPLAY TIMELINE
+    document.querySelector("#replayBtn")?.addEventListener("click", () => {
+        window.dispatchEvent(new Event("replay-timeline"));
+    });
+
+

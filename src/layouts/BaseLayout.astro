@@ -1,60 +1,26 @@
 
 ---
-<<<<<<< HEAD
-<<<<<<< HEAD
-import Footer from "../components/Footer.astro";
-import Header from "../components/Header.astro";
-=======
->>>>>>> b91789a (First astro commit)
-=======
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
->>>>>>> 3cbf8ba (basta commit)
 import "../styles/global.css";
 
 const name = "Jory Jey Caro";
 const position = "Manog kaon";
 ---
 
-<<<<<<< HEAD
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>{name}|{position}</title>
-	</head>
-	<body>
-<<<<<<< HEAD
-        <Header />
-		<slot />
-        <Footer />
-	</body>
-    
-=======
-		<slot />
-	</body>
-    
-
->>>>>>> b9178a9 (First astro commit)
-=======
 <!DOCTYPE html>
 <html lang="en" class="dark">
 <head>
     <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" href="/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="generator" content={Astro.generator} />
+
     <title>{name} | {position}</title>
 
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-
-    <script is:inline>
-        tailwind.config = {
-            darkMode: "class"
-        };
-    </script>
 
     <!-- GSAP -->
     <script
@@ -69,21 +35,28 @@ const position = "Manog kaon";
 </head>
 
 <body>
+
+    <!-- Scroll Progress -->
     <div id="progressBar"></div>
+
+    <!-- Cursor Glow -->
     <div id="cursorGlow"></div>
 
+    <!-- Header -->
     <Header />
 
+    <!-- Main Content -->
     <main>
         <slot />
     </main>
 
+    <!-- Footer -->
     <Footer />
 
-    <!-- Your animation file -->
+    <!-- GSAP Animation Script -->
     <script>
         import "../scripts/animation.js";
     </script>
+
 </body>
->>>>>>> 3cbf8ba (basta commit)
 </html>
